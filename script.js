@@ -187,8 +187,7 @@ function renderBookInfo() {
             <th><b>${books[bookIndex].comments[commentIndex].name}</b></td>
             <td> : ${books[bookIndex].comments[commentIndex].comment}</td>
           </tr>
-      `;
-      console.log(books[bookIndex].comments[commentIndex].name + books[bookIndex].comments[commentIndex].comment); 
+      `; 
     }
     bookInfoRef.innerHTML += getRenderBookInfoTemplate(bookIndex, bookCommentsRef);
   }
@@ -209,14 +208,16 @@ function toggleHeartAndCounter(bookIndex) {
     likesCounterRef.innerHTML = books[bookIndex].likes;
     books[bookIndex].liked = !books[bookIndex].liked;
 }
-
-function sendInput() {
-  
-}
  
 function renderRespMenu() {
   let renderMenuRef = document.getElementById('resp_menu');
   renderMenuRef.classList.toggle('resp_menu_closed')
+}
+
+function sendInput(bookIndex) {
+  let test = document.getElementById(`comments_input${bookIndex}`).value;
+  
+  console.log(test); 
 }
   
   

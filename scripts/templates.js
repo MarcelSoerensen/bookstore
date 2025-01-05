@@ -32,12 +32,12 @@ function getRenderBookInfoTemplate(bookIndex, bookCommentsRef) {
             </tr>
           </table> 
         </div>
-        ${getRenderBookCommentsTemplate(bookCommentsRef)}
+        ${getRenderBookCommentsTemplate(bookCommentsRef, bookIndex)}
       </div>
     `
 }
 
-function getRenderBookCommentsTemplate(bookCommentsRef) {
+function getRenderBookCommentsTemplate(bookCommentsRef, bookIndex) {
   return /*html*/`
     <div class="book_comments">
       <h3>Kommentare :</h3>
@@ -48,8 +48,8 @@ function getRenderBookCommentsTemplate(bookCommentsRef) {
       </div>
     </div>
     <div class="book_comments_input_section">
-      <input class="book_comments_input_field" type="text">
-      <img onclick="sendInput()" src="./assets/icons/send-2-svgrepo-com.svg" alt="">
+      <input id="comments_input${bookIndex}" class="book_comments_input_field" placeholder="Gib dein Kommentar ein.. " type="text">
+      <img onclick="sendInput(${bookIndex})" src="./assets/icons/send-2-svgrepo-com.svg" alt="">
     </div>
   `
 }
